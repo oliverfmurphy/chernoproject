@@ -23,10 +23,10 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private JFrame frame;
-	private Keyboard key;
+	private Keyboard key;  // keyboard class
 	private boolean running = false;
 	
-	private Screen screen;
+	private Screen screen; // screen class
 
 	// create the image
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -65,10 +65,11 @@ public class Game extends Canvas implements Runnable {
 		
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
-		final double ns = 1000000000.0 / 60.0; // divide it by tick length
+		final double ns = 1000000000.0 / 60.0; // 1s / divided by tick length
 		double delta = 0;
 		int frames = 0; // count how many frames we have time to render every second
 		int updates = 0; // how many times update method gets called every second -- should be 60
+		requestFocus();  // Ensures you dont have to click screen to be able to control
 		while (running) {
 			
 			long now = System.nanoTime();
@@ -127,7 +128,7 @@ public class Game extends Canvas implements Runnable {
 		//g.fillRect(0, 0, getWidth(), getHeight());
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.dispose(); // releases system resources
-		bs.show(); // displays next available buffer
+		bs.show();   // displays next available buffer
 	}
 
 	public static void main(String[] args) {
@@ -135,7 +136,7 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setResizable(false); //always first for frame
 		game.frame.setTitle(Game.title);
 		game.frame.add(game); // add instance of game (component) to frame, can do this as Game extends canvas
-		game.frame.pack(); // sizes up game to be the size of the component
+		game.frame.pack();    // sizes up game to be the size of the component
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setLocationRelativeTo(null);
 		game.frame.setVisible(true);

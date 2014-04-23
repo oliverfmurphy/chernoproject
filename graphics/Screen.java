@@ -27,8 +27,20 @@ public class Screen {
     		pixels[i] = 0;
     	}
     }
-    
-    public void render(int xoffset, int yoffset){ 	
+ 
+    public void render(int xOffset, int yOffset){ 	
+    	for (int y = 0; y < height; y++){
+    		int yp = y + yOffset;
+    		if (yp < 0 || yp >= height) continue;
+     		for (int x = 0; x < width; x++){
+     			int xp = x + xOffset;
+     			if (xp < 0 || xp >= width) continue;
+     			pixels[xp  + (yp * width)] = Sprite.grass.pixels[(x & 15) + (y & 15) * Sprite.grass.SIZE];
+    		}
+    	}
+    }
+
+/*    public void render(int xoffset, int yoffset){ 	
     	for (int y = 0; y < height; y++){
     		int yy = y + yoffset;
     		//if (yy < 0 || yy >= height) break;
@@ -44,5 +56,5 @@ public class Screen {
     		}
     	}
     }
-    
+*/    
 }
