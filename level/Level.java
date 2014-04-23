@@ -5,13 +5,13 @@ import com.olivermurphy.chernoproject.graphics.Screen;
 // top level class (template) for levels, will be subclasses
 public class Level {
 
-	private int width, height;
-	private int[] tiles;
+	protected int width, height;
+	protected int[] tiles;
 	
 	public Level(int width, int height) {
 		this.width = width;
 	    this.height = height;
-	    tiles = new int[width * height];
+	    tiles = new int[width * height]; // each number will represent a tile
 	    generateLevel();
 	}
 
@@ -19,11 +19,11 @@ public class Level {
 		loadLevel(path);
 	}
 	
-	private void generateLevel() {
+	protected void generateLevel() {
 		
 	}
 	
-	private void loadLevel(String path) {
+	protected void loadLevel(String path) {
 		
 	}
 	
@@ -33,7 +33,7 @@ public class Level {
 	}
 	
 	// manage the time
-	private void time() {
+	protected void time() {
 		
 	}
 	
