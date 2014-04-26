@@ -2,6 +2,8 @@ package com.olivermurphy.chernoproject.graphics;
 
 import java.util.Random;
 
+import com.olivermurphy.chernoproject.level.tile.Tile;
+
 public class Screen {
 
     private int width, height;
@@ -56,5 +58,25 @@ public class Screen {
     		}
     	}
     }
-*/    
+*/
+    
+    //Rendering tile on offset based position
+    // alternatively manage each tiles position manually
+    public void renderTile(int xp, int yp, Tile tile) {
+    	for (int y = 0; y < tile.sprite.SIZE; y++) {
+    		int ya = y + yp; // ya => y absolute
+    	}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

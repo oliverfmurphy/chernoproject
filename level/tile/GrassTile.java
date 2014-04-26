@@ -13,6 +13,7 @@ public class GrassTile extends Tile{
     
 	public void render(int x, int y, Screen screen) {	
 	    // Do render stuff here!
+		
 	}
 
 }
