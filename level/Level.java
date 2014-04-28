@@ -1,6 +1,7 @@
 package com.olivermurphy.chernoproject.level;
 
 import com.olivermurphy.chernoproject.graphics.Screen;
+import com.olivermurphy.chernoproject.level.tile.Tile;
 
 // top level class (template) for levels, will be subclasses
 public class Level {
@@ -47,5 +48,10 @@ public class Level {
 		
 		int y0 = yScroll >> 4;
 		int y1= (yScroll + screen.height) >> 4;
+	}
+	
+	public Tile getTile(int x, int y) {
+		if (tiles[x + y * width] == 0 ) return Tile.grass;
+		return null; // to be changed later - null pointer exception
 	}
 }
