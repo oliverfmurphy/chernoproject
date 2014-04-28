@@ -11,6 +11,7 @@ public class Tile {
 	
 	//static object of grass - only ever need once instance
 	public static Tile grass = new GrassTile(Sprite.grass);
+	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;

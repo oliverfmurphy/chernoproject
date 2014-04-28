@@ -7,7 +7,8 @@ public class Sprite {
 	public int[] pixels;
 	private SpriteSheet sheet;
 
-	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y, 
+	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y,
+	public static Sprite voidSprite = new Sprite(16, 0/*black*/); //www.colourpicker.com
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
@@ -18,6 +19,17 @@ public class Sprite {
 		load();
 	}
 	
+	public Sprite(int size, int colour) {
+		SIZE = size;
+		pixels = new int[SIZE * SIZE];
+		setColour(colour);
+	}
+	
+	private void setColour(int colour) {
+		for (int i = 0; i < SIZE * SIZE; i++){
+			pixels[i] = colour;
+		}
+	}
 	// extracting a single sprite from spritesheet
 	private void load() {
 		for (int y = 0; y < SIZE; y++) {
