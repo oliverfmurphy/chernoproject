@@ -11,9 +11,10 @@ public class GrassTile extends Tile{
     	
     }
     
-	public void render(int x, int y, Screen screen) {	
+	// will be in pixel format and not tile format
+    public void render(int x, int y, Screen screen) {	
 	    // Do render stuff here!
-		
+		screen.renderTile(x, y, this);
 	}
 
 }
