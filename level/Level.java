@@ -50,6 +50,12 @@ public class Level {
 		
 		int y0 = yScroll >> 4;
 		int y1= (yScroll + screen.height) >> 4;
+		
+		for (int y = y0; y < y1; y++) { // want to render from top part of the screen y0 to the bottom part of the screen y1
+			for (int x = x0; x < x1; x++){ // all pixels left x0 to right x1
+				getTile(x, y).render(x, y, screen);
+			}
+		}
 	}
 	
 	public Tile getTile(int x, int y) {
