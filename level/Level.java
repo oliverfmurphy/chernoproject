@@ -41,6 +41,8 @@ public class Level {
 	// render tiles until edge of screen using corner pins(co-ordinates of corners)
 	public void render(int xScroll, int yScroll, Screen screen) {
 		
+		screen.setOffset(xScroll, yScroll);
+		
 		// left most vertical asymptote
 		int x0 = xScroll  >> 4; // shifted right 4 = divide by 16(size of tile) because we want to deal at pixel level and not tile level
 		// right most vertical asymptote
@@ -52,6 +54,6 @@ public class Level {
 	
 	public Tile getTile(int x, int y) {
 		if (tiles[x + y * width] == 0 ) return Tile.grass;
-		return Tile.voidTile; // to be changed later - null pointer exception
+		return Tile.voidTile;
 	}
 }
