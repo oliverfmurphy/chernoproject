@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.input.Keyboard;
+import com.olivermurphy.chernoproject.level.Level;
+import com.olivermurphy.chernoproject.level.RandomLevel;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +26,7 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread;
 	private JFrame frame;
 	private Keyboard key;  // keyboard class
+	private Level level; // should only have one level loaded at one point in time
 	private boolean running = false;
 	
 	private Screen screen; // screen class
@@ -40,7 +43,8 @@ public class Game extends Canvas implements Runnable {
 
 		screen = new Screen(width, height);
 		frame = new JFrame();
-		key = new Keyboard();	
+		key = new Keyboard();
+		level = new RandomLevel(64, 64); // 64 * 64 tiles
 
 		addKeyListener(key);	
 	}
@@ -115,7 +119,7 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		screen.clear(); // clears the screen
-		screen.render(x, y); //renders the image
+		level.render(x, y, screen);
 		
 		for (int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];

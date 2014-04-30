@@ -14,7 +14,7 @@ public class GrassTile extends Tile{
 	// will be in pixel format and not tile format
     public void render(int x, int y, Screen screen) {	
 	    // Do render stuff here!
-		screen.renderTile(x, y, this);
+		screen.renderTile(x << 4, y << 4, this); //multiply by 16 to get back to tile level precision
 	}
 
 }

@@ -28,7 +28,8 @@ public class Screen {
     		pixels[i] = 0;
     	}
     }
- 
+
+/*  old method for rendering grass tiles    
     public void render(int xOffset, int yOffset){ 	
     	for (int y = 0; y < height; y++){
     		int yp = y + yOffset;
@@ -40,7 +41,7 @@ public class Screen {
     		}
     	}
     }
-
+*/
 /*    public void render(int xoffset, int yoffset){ 	
     	for (int y = 0; y < height; y++){
     		int yy = y + yoffset;
