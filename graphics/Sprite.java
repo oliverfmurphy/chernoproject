@@ -7,7 +7,7 @@ public class Sprite {
 	public int[] pixels;
 	private SpriteSheet sheet;
 
-	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y,
+	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y, tile
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0); //www.colourpicker.com
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
