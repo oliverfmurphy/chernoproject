@@ -46,10 +46,10 @@ public class Level {
 		// left most vertical asymptote
 		int x0 = xScroll  >> 4; // shifted right 4 = divide by 16(size of tile) because we want to deal at pixel level and not tile level
 		// right most vertical asymptote
-		int x1 = (xScroll + screen.width) >> 4;
+		int x1 = (xScroll + screen.width + 16) >> 4;
 		
 		int y0 = yScroll >> 4;
-		int y1= (yScroll + screen.height) >> 4;
+		int y1= (yScroll + screen.height + 16) >> 4;
 		
 		for (int y = y0; y < y1; y++) { // want to render from top part of the screen y0 to the bottom part of the screen y1
 			for (int x = x0; x < x1; x++){ // all pixels left x0 to right x1

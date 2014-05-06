@@ -71,8 +71,8 @@ public class Screen {
     		int ya = y + yp; // ya => y absolute - y position + offset
         	for (int x = 0; x < tile.sprite.SIZE; x++) {
         		int xa = x + xp; // xa => x absolute
-        		if (xa < 0 || xa >= width || ya <0 || ya >= width) break; //only render tiles you see
-        		
+        		if (xa < -tile.sprite.SIZE || xa >= width || ya <0 || ya >= width) break; //only render tiles you see
+        		if (xa < 0) xa = 0;
         		// where sprite is rendered = which pixels of sprite gets rendered
         		pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
         	}
