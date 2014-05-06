@@ -1,7 +1,6 @@
 package com.olivermurphy.chernoproject.entity;
 
 import java.util.Random;
-
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.level.Level;
 
@@ -16,6 +15,7 @@ public abstract class Entity {
 	public void update() {	
 	}
 	
+	// Entities do not necessarily have sprites
 	public void render(Screen screen) {	
 	}
 	
