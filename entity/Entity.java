@@ -6,7 +6,7 @@ import com.olivermurphy.chernoproject.level.Level;
 
 public abstract class Entity {
 
-	public int x, y;
+	public int x, y; // control location of entity on a map
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
