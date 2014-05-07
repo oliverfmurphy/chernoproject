@@ -3,6 +3,7 @@ package com.olivermurphy.chernoproject;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -10,6 +11,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import com.olivermurphy.chernoproject.entity.mob.Player;
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.input.Keyboard;
 import com.olivermurphy.chernoproject.level.Level;
@@ -27,6 +29,7 @@ public class Game extends Canvas implements Runnable {
 	private JFrame frame;
 	private Keyboard key;  // keyboard class
 	private Level level; // should only have one level loaded at one point in time
+	private Player player;
 	private boolean running = false;
 	
 	private Screen screen; // screen class
@@ -45,6 +48,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		level = new RandomLevel(64, 64); // 64 * 64 tiles
+		player = new Player(key);
 
 		addKeyListener(key);	
 	}
@@ -99,15 +103,10 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 
-	int x=0, y=0;
-		
 	// i.e. ticks
 	public void update() {
 		key.update();
-		if (key.up) y--;
-		if (key.down) y++;
-		if (key.left) x--;
-		if (key.right) x++;
+		player.update();
 	}
 
 	// 
@@ -119,18 +118,20 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		screen.clear(); // clears the screen
-		level.render(x, y, screen);
+		level.render(player.x, player.y, screen);
 		
 		for (int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
 		
 		Graphics g = bs.getDrawGraphics();//creates a link between graphics and the bufferStrategy
-
 		// all graphics must now be done here
-		//g.setColor(Color.BLACK);
-		//g.fillRect(0, 0, getWidth(), getHeight());
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		g.setColor(Color.WHITE);
+		//g.fillRect(0, 0, getWidth(), getHeight());
+		g.setFont(new Font("Verdana", 0, 50));
+		g.drawString("X: " + player.x + ", Y: " + player.y, 350, 300);
+
 		g.dispose(); // releases system resources
 		bs.show();   // displays next available buffer
 	}
