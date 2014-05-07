@@ -10,15 +10,16 @@ public abstract class Mob extends Entity {
 	protected int dir = 0; // direction -> 0 - North, 1 - East, 2- South, 3 - West
 	protected boolean moving = false;
 	
-	public void move() {
-		
+	public void move() {		
 	}
 	
-	public void update () {
-		
+	public void update () {		
 	}
 	
 	private boolean collision() {
 		return false;
+	}
+	
+	public void render() {		
 	}
 }
