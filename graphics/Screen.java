@@ -2,6 +2,7 @@ package com.olivermurphy.chernoproject.graphics;
 
 import java.util.Random;
 
+import com.olivermurphy.chernoproject.entity.mob.Player;
 import com.olivermurphy.chernoproject.level.tile.Tile;
 
 public class Screen {
@@ -78,6 +79,24 @@ public class Screen {
         	}
     	}
     }
+    
+    public void renderPlayer(int xp, int yp, Sprite sprite) {
+    	xp -= xOffset; // minus as when we move right we want map to move left
+    	yp -= yOffset;
+    	
+    	for (int y = 0; y < 16; y++) {
+    		int ya = y + yp; // ya => y absolute - y position + offset
+        	for (int x = 0; x < 16; x++) {
+        		int xa = x + xp; // xa => x absolute
+        		if (xa < -16 || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
+        		if (xa < 0) xa = 0;
+        		// where sprite is rendered = which pixels of sprite gets rendered
+        		pixels[xa + ya * width] = sprite.pixels[x + y * 16];
+        	}
+    	}
+    	
+    }
+    
     
     public void setOffset(int xOffset, int yOffset) {
     	this.xOffset = xOffset;

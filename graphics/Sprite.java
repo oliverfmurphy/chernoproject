@@ -10,6 +10,11 @@ public class Sprite {
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y, tile
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0); //www.colourpicker.com
 	
+	public static Sprite player0 = new Sprite(16, 0, 3, SpriteSheet.tiles);
+	public static Sprite player1 = new Sprite(16, 1, 3, SpriteSheet.tiles);
+	public static Sprite player2 = new Sprite(16, 0, 4, SpriteSheet.tiles);
+	public static Sprite player3 = new Sprite(16, 1, 4, SpriteSheet.tiles);
+	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
 		pixels = new int[SIZE * SIZE]; // creates new pixel array that is the size of the sprite

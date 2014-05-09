@@ -1,5 +1,7 @@
 package com.olivermurphy.chernoproject.entity.mob;
 
+import com.olivermurphy.chernoproject.graphics.Screen;
+import com.olivermurphy.chernoproject.graphics.Sprite;
 import com.olivermurphy.chernoproject.input.Keyboard;
 
 public class Player extends Mob {
@@ -29,6 +31,7 @@ public class Player extends Mob {
 		
 	}
 	
-	public void render() {		
+	public void render(Screen screen) {	
+		screen.renderPlayer(x, y, Sprite.player0);
 	}
 }
