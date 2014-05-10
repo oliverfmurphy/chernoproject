@@ -22,6 +22,22 @@ public class Sprite {
 	//public static Sprite player_right = new Sprite(32, 0, 7, SpriteSheet.tiles );
 	public static Sprite player_side = new Sprite(32, 0, 5, SpriteSheet.tiles );
 	public static Sprite player_forward = new Sprite(32, 0, 6, SpriteSheet.tiles ); // co-ordinates are 0,4 when dealing with 32 pixel sprites
+
+	public static Sprite player_forward_1 = new Sprite(32, 1, 6, SpriteSheet.tiles );
+	public static Sprite player_forward_2 = new Sprite(32, 2, 6, SpriteSheet.tiles );
+	public static Sprite player_forward_3 = new Sprite(32, 3, 6, SpriteSheet.tiles );
+	public static Sprite player_forward_4 = new Sprite(32, 4, 6, SpriteSheet.tiles );
+	
+	public static Sprite player_back_1 = new Sprite(32, 1, 4, SpriteSheet.tiles );
+	public static Sprite player_back_2 = new Sprite(32, 2, 4, SpriteSheet.tiles );
+	public static Sprite player_back_3 = new Sprite(32, 3, 4, SpriteSheet.tiles );
+	public static Sprite player_back_4 = new Sprite(32, 4, 4, SpriteSheet.tiles );
+
+	public static Sprite player_side_1 = new Sprite(32, 1, 5, SpriteSheet.tiles );
+	public static Sprite player_side_2 = new Sprite(32, 2, 5, SpriteSheet.tiles );
+	public static Sprite player_side_3 = new Sprite(32, 3, 5, SpriteSheet.tiles );
+	public static Sprite player_side_4 = new Sprite(32, 4, 5, SpriteSheet.tiles );
+
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
