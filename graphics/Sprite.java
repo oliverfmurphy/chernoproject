@@ -11,12 +11,16 @@ public class Sprite {
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0); //www.colourpicker.com
 	
 	// dealing with 4 corners of 32*32 sprite
-	public static Sprite player0 = new Sprite(16, 0, 8, SpriteSheet.tiles);
-	public static Sprite player1 = new Sprite(16, 1, 8, SpriteSheet.tiles);
-	public static Sprite player2 = new Sprite(16, 0, 9, SpriteSheet.tiles);
-	public static Sprite player3 = new Sprite(16, 1, 9, SpriteSheet.tiles);
+	// public static Sprite player0 = new Sprite(16, 0, 8, SpriteSheet.tiles);
+	// public static Sprite player1 = new Sprite(16, 1, 8, SpriteSheet.tiles);
+	// public static Sprite player2 = new Sprite(16, 0, 9, SpriteSheet.tiles);
+	// public static Sprite player3 = new Sprite(16, 1, 9, SpriteSheet.tiles);
 	
-	public static Sprite player = new Sprite(32, 0, 4, SpriteSheet.tiles ); // co-ordinates are 0,4 when dealing with 32 pixel sprites
+	
+	public static Sprite player_back = new Sprite(32, 0, 4, SpriteSheet.tiles );
+	public static Sprite player_left = new Sprite(32, 0, 5, SpriteSheet.tiles );
+	public static Sprite player_right = new Sprite(32, 0, 7, SpriteSheet.tiles );
+	public static Sprite player_forward = new Sprite(32, 0, 6, SpriteSheet.tiles ); // co-ordinates are 0,4 when dealing with 32 pixel sprites
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;

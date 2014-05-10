@@ -7,9 +7,11 @@ import com.olivermurphy.chernoproject.input.Keyboard;
 public class Player extends Mob {
 	
 	private Keyboard input;
+	private Sprite sprite;
 	
 	public Player(Keyboard input) {	
 		this.input = input;
+		sprite = Sprite.player_forward; // default the sprite to face forward
 	}
 	
 	// Create a player in a specific location
@@ -17,6 +19,7 @@ public class Player extends Mob {
 		this.x = x; // Defined in the entity class
 		this.y = y; // Defined in the entity class
 		this.input = input;
+		sprite = Sprite.player_forward; // default the sprite to face forward
 	}
 	
 	// effects entities x & y co-ordinates
@@ -32,6 +35,10 @@ public class Player extends Mob {
 	}
 	
 	public void render(Screen screen) {	
-		screen.renderPlayer(x - 16, y - 16, Sprite.player);
+		if (dir == 0) sprite = Sprite.player_forward;
+		if (dir == 1) sprite = Sprite.player_right;
+		if (dir == 2) sprite = Sprite.player_back;
+		if (dir == 3) sprite = Sprite.player_left;
+		screen.renderPlayer(x - 16, y - 16, sprite);
 	}
 }
