@@ -84,14 +84,14 @@ public class Screen {
     	xp -= xOffset; // minus as when we move right we want map to move left
     	yp -= yOffset;
     	
-    	for (int y = 0; y < 16; y++) {
+    	for (int y = 0; y < 32; y++) {
     		int ya = y + yp; // ya => y absolute - y position + offset
-        	for (int x = 0; x < 16; x++) {
+        	for (int x = 0; x < 32; x++) {
         		int xa = x + xp; // xa => x absolute
-        		if (xa < -16 || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
+        		if (xa < -32 || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
         		if (xa < 0) xa = 0;
         		
-        		int col = sprite.pixels[x + y * 16];
+        		int col = sprite.pixels[x + y * 32];
         		
         		// only render if the colour is not a particular colour
         		// this is to remove the pink background from a sprite for example
