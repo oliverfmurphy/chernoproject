@@ -90,8 +90,16 @@ public class Screen {
         		int xa = x + xp; // xa => x absolute
         		if (xa < -16 || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
         		if (xa < 0) xa = 0;
-        		// where sprite is rendered = which pixels of sprite gets rendered
-        		pixels[xa + ya * width] = sprite.pixels[x + y * 16];
+        		
+        		int col = sprite.pixels[x + y * 16];
+        		
+        		// only render if the colour is not a particular colour
+        		// this is to remove the pink background from a sprite for example
+        		// the additional leading ff is for the RGB alpha channel
+        		if (col != 0xffda23ff) {
+        		    // where sprite is rendered = which pixels of sprite gets rendered
+        		    pixels[xa + ya * width] = col;
+        		}
         	}
     	}
     	

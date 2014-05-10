@@ -10,6 +10,7 @@ public class Sprite {
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y, tile
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0); //www.colourpicker.com
 	
+	// dealing with 4 corners of 32*32 sprite
 	public static Sprite player0 = new Sprite(16, 0, 3, SpriteSheet.tiles);
 	public static Sprite player1 = new Sprite(16, 1, 3, SpriteSheet.tiles);
 	public static Sprite player2 = new Sprite(16, 0, 4, SpriteSheet.tiles);
