@@ -80,18 +80,23 @@ public class Screen {
     	}
     }
     
-    public void renderPlayer(int xp, int yp, Sprite sprite) {
+    // int flip instead of boolean as 4 states, x y/n & y y/n
+    public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {
     	xp -= xOffset; // minus as when we move right we want map to move left
     	yp -= yOffset;
     	
     	for (int y = 0; y < 32; y++) {
     		int ya = y + yp; // ya => y absolute - y position + offset
+    		int ys = y;
+    		if (flip == 2  || flip == 3) ys = 31 - y; // ys is ysprite
         	for (int x = 0; x < 32; x++) {
         		int xa = x + xp; // xa => x absolute
+        		int xs = x;
+        		if (flip == 1  || flip == 3) xs = 31 - x; // ys is ysprite
         		if (xa < -32 || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
         		if (xa < 0) xa = 0;
         		
-        		int col = sprite.pixels[x + y * 32];
+        		int col = sprite.pixels[xs + ys * 32];
         		
         		// only render if the colour is not a particular colour
         		// this is to remove the pink background from a sprite for example

@@ -18,8 +18,9 @@ public class Sprite {
 	
 	
 	public static Sprite player_back = new Sprite(32, 0, 4, SpriteSheet.tiles );
-	public static Sprite player_left = new Sprite(32, 0, 5, SpriteSheet.tiles );
-	public static Sprite player_right = new Sprite(32, 0, 7, SpriteSheet.tiles );
+	//public static Sprite player_left = new Sprite(32, 0, 5, SpriteSheet.tiles );
+	//public static Sprite player_right = new Sprite(32, 0, 7, SpriteSheet.tiles );
+	public static Sprite player_side = new Sprite(32, 0, 5, SpriteSheet.tiles );
 	public static Sprite player_forward = new Sprite(32, 0, 6, SpriteSheet.tiles ); // co-ordinates are 0,4 when dealing with 32 pixel sprites
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
