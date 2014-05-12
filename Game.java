@@ -119,7 +119,7 @@ public class Game extends Canvas implements Runnable {
 
 		screen.clear(); // clears the screen
 		int xScroll =  player.x - screen.width / 2; // putting player in the middle of the screen based on x
-		int yScroll =  player.y - screen.height / 2; // putting player in the middle of the screen based on x
+		int yScroll =  player.y - screen.height / 2; // putting player in the middle of the screen based on y
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
 		

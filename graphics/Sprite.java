@@ -8,6 +8,8 @@ public class Sprite {
 	private SpriteSheet sheet;
 
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);//size, x, y, tile
+	public static Sprite flower = new Sprite(16, 1, 0, SpriteSheet.tiles);//size, x, y, tile
+	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);//size, x, y, tile
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0); //www.colourpicker.com
 	
 	// dealing with 4 corners of 32*32 sprite

@@ -48,13 +48,13 @@ public class Player extends Mob {
 		if (dir == 0) {
 			sprite = Sprite.player_forward;
 			if (walking) {
-				if (anim % 50 < 10) {
+				if (anim % 30 < 6) {
 					sprite = Sprite.player_forward;
-				}else if (anim % 50 < 20) {
+				}else if (anim % 30 < 12) {
 					sprite = Sprite.player_forward_1;
-				}else if (anim % 50 < 30) {
+				}else if (anim % 30 < 18) {
 					sprite = Sprite.player_forward_2;
-				}else if (anim % 50 < 40) {
+				}else if (anim % 30 < 24) {
 					sprite = Sprite.player_forward_3;
 				} else {
 					sprite = Sprite.player_forward_4;
@@ -64,30 +64,30 @@ public class Player extends Mob {
 		if (dir == 1) {
 			sprite = Sprite.player_side;
 			if (walking) {
-				if (anim % 50 < 10) {
+				if (anim % 30 < 6) {
 					sprite = Sprite.player_side;
-				}else if (anim % 50 < 20) {
+				}else if (anim % 30 < 12) {
 					sprite = Sprite.player_side_1;
-				}else if (anim % 50 < 30) {
+				}else if (anim % 30 < 18) {
 					sprite = Sprite.player_side_2;
-				}else if (anim % 50 < 40) {
+				}else if (anim % 30 < 24) {
 					sprite = Sprite.player_side_3;
 				} else {
 					sprite = Sprite.player_side_4;
 				}
 			}
-			flip = 1;
+			flip = 1; // flip the sprite in the renderPlayer method
 		}
 		if (dir == 2) {
 			sprite = Sprite.player_back;
 			if (walking) {
-				if (anim % 50 < 10) {
+				if (anim % 30 < 6) {
 					sprite = Sprite.player_back;
-				}else if (anim % 50 < 20) {
+				}else if (anim % 30 < 12) {
 					sprite = Sprite.player_back_1;
-				}else if (anim % 50 < 30) {
+				}else if (anim % 30 < 18) {
 					sprite = Sprite.player_back_2;
-				}else if (anim % 50 < 40) {
+				}else if (anim % 30 < 24) {
 					sprite = Sprite.player_back_3;
 				} else {
 					sprite = Sprite.player_back_4;
