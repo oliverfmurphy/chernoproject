@@ -9,7 +9,6 @@ import com.olivermurphy.chernoproject.level.tile.Tile;
 
 public class SpawnLevel extends Level{
     
-	private Tile[] tiles ;
 	private int[] levelPixels; // RGB array
 	
 	public SpawnLevel(String path) {
@@ -35,10 +34,10 @@ public class SpawnLevel extends Level{
 	// Flower = 0xFFFF00
 	// Rock = 0x7F7F00
 	protected void generateLevel() {
-	    for (int i = 0; i < levelPixels.length; i++) {
-		if (levelPixels[i] == 0xff00) tiles[i] = Tile.grass;
-		if (levelPixels[i] == 0xffff00) tiles[i] = Tile.flower;
-		if (levelPixels[i] == 0x7f7f00) tiles[i] = Tile.rock;
+		for (int i = 0; i < levelPixels.length; i++) {
+		    if (levelPixels[i] == 0xff00) tiles[i] = Tile.grass;
+		    if (levelPixels[i] == 0xffff00) tiles[i] = Tile.flower;
+		    if (levelPixels[i] == 0x7f7f00) tiles[i] = Tile.rock;
 	    }
 	}
 

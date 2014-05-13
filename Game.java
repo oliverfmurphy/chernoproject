@@ -15,7 +15,7 @@ import com.olivermurphy.chernoproject.entity.mob.Player;
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.input.Keyboard;
 import com.olivermurphy.chernoproject.level.Level;
-import com.olivermurphy.chernoproject.level.RandomLevel;
+import com.olivermurphy.chernoproject.level.SpawnLevel;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new RandomLevel(64, 64); // 64 * 64 tiles
+		level = new SpawnLevel("/textures/level.png"); // 64 * 64 tiles
 		player = new Player(key);
 
 		addKeyListener(key);	
