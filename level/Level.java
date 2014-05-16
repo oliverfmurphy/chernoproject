@@ -8,7 +8,7 @@ public class Level {
 
 	protected int width, height;
 	protected int[] tilesInt;
-	protected Tile[] tiles ;
+	protected int[] tiles;// will contain all the level tiles
 	
 	public Level(int width, int height) {
 		this.width = width;
@@ -55,21 +55,19 @@ public class Level {
 		
 		for (int y = y0; y < y1; y++) { // want to render from top part of the screen y0 to the bottom part of the screen y1
 			for (int x = x0; x < x1; x++){ // all pixels left x0 to right x1
-				//getTile(x, y).render(x, y, screen);
-				if ((x + y * 16) < 0 || (x + y * 16) >= 256) {
-					Tile.voidTile.render(x, y, screen);
-					continue;
-				}
-				tiles[x + y * 16].render(x, y, screen);
+				getTile(x, y).render(x, y, screen);
 			}
 		}
 	}
 	
+	// Grass = 0xff00ff00
+	// Flower = 0xffffff00
+	// Rock = 0xff7f7f7f
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-		if (tilesInt[x + y * width] == 0 ) return Tile.grass;
-		if (tilesInt[x + y * width] == 1 ) return Tile.flower;
-		if (tilesInt[x + y * width] == 2 ) return Tile.rock;
+		if (tiles[x + y * width] == 0xff00ff00 ) return Tile.grass;
+		if (tiles[x + y * width] == 0xffffff00 ) return Tile.flower;
+		if (tiles[x + y * width] == 0xff7f7f7f ) return Tile.rock;
 		return Tile.voidTile;
 	}
 }
