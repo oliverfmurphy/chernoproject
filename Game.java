@@ -48,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		level = new SpawnLevel("/textures/level.png"); // 64 * 64 tiles
-		player = new Player(key);
+		player = new Player(6 * 16, 4 * 16, key);// tile * pixels(16 pixels) customises spawn location when x and y defined
 
 		addKeyListener(key);	
 	}
