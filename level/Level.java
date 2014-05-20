@@ -9,6 +9,7 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;// will contain all the level tiles
+	public static Level spawn = new Level("/levels/spawn.png"); // levels always static as only ever one instance of a level
 	
 	public Level(int width, int height) {
 		this.width = width;
