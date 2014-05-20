@@ -15,7 +15,7 @@ import com.olivermurphy.chernoproject.entity.mob.Player;
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.input.Keyboard;
 import com.olivermurphy.chernoproject.level.Level;
-import com.olivermurphy.chernoproject.level.SpawnLevel;
+import com.olivermurphy.chernoproject.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -48,7 +48,8 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		level = Level.spawn; // because Level.spawn is static we can do this rather then level Level = new SpawnLevel etc..
-		player = new Player(6 * 16, 4 * 16, key);// tile * pixels(16 pixels) customises spawn location when x and y defined
+		TileCoordinate playerSpawn = new TileCoordinate(20, 66);// 20, 67 is the location of where we want to spawn on the level(spawn.png))
+		player = new Player(playerSpawn.x(), playerSpawn.y(), key);// tile * pixels(16 pixels) customises spawn location when x and y defined
 
 		addKeyListener(key);	
 	}

@@ -13,7 +13,7 @@ public class Player extends Mob {
 	
 	public Player(Keyboard input) {	
 		this.input = input;
-		sprite = Sprite.player_forward; // default the sprite to face forward
+		sprite = Sprite.player_back; // default the sprite to face backward
 	}
 	
 	// Create a player in a specific location
@@ -21,7 +21,7 @@ public class Player extends Mob {
 		this.x = x; // Defined in the entity class
 		this.y = y; // Defined in the entity class
 		this.input = input;
-		sprite = Sprite.player_forward; // default the sprite to face forward
+		sprite = Sprite.player_back; // default the sprite to face backward
 	}
 	
 	// effects entities x & y co-ordinates
@@ -46,7 +46,7 @@ public class Player extends Mob {
 	public void render(Screen screen) {	
 		int flip = 0;
 		if (dir == 0) {
-			sprite = Sprite.player_forward;
+			sprite = Sprite.player_back;
 			if (walking) {
 				if (anim % 30 < 6) {
 					sprite = Sprite.player_forward;
