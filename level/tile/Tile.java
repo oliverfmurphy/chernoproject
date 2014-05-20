@@ -5,6 +5,7 @@ import com.olivermurphy.chernoproject.graphics.Sprite;
 import com.olivermurphy.chernoproject.level.tile.spawn_level.SpawnFloorTile;
 import com.olivermurphy.chernoproject.level.tile.spawn_level.SpawnGrassTile;
 import com.olivermurphy.chernoproject.level.tile.spawn_level.SpawnHedgeTile;
+import com.olivermurphy.chernoproject.level.tile.spawn_level.SpawnWallTile;
 import com.olivermurphy.chernoproject.level.tile.spawn_level.SpawnWaterTile;
 
 // each tile needs a position and a sprite

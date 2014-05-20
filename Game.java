@@ -50,7 +50,8 @@ public class Game extends Canvas implements Runnable {
 		level = Level.spawn; // because Level.spawn is static we can do this rather then level Level = new SpawnLevel etc..
 		TileCoordinate playerSpawn = new TileCoordinate(20, 66);// 20, 67 is the location of where we want to spawn on the level(spawn.png))
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);// tile * pixels(16 pixels) customises spawn location when x and y defined
-
+        player.init(level);
+		
 		addKeyListener(key);	
 	}
 
