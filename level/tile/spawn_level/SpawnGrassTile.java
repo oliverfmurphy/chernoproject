@@ -8,7 +8,6 @@ public class SpawnGrassTile extends Tile{
 
 	public SpawnGrassTile(Sprite sprite) {
 		super(sprite);
-		// TODO Auto-generated constructor stub
 	}
 	
 	// will be in pixel format and not tile format

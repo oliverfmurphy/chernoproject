@@ -11,12 +11,20 @@ public abstract class Mob extends Entity {
 	protected boolean moving = false;
 	
 	public void move(int xa, int ya) {
-        if (xa > 0) dir = 1; // East
+        
+		// if advancing on both axis, split the movement
+		if (xa != 0 && ya !=0) {
+			move(xa,0);
+			move(0, ya);
+			return;
+		}
+		
+		if (xa > 0) dir = 1; // East
         if (xa < 0) dir = 3; // West
         if (ya > 0) dir = 2; // South
         if (ya < 0) dir = 0; // North
 		
-		// if no collision
+		// if no collision then advance
 		if (!collision(xa, ya)) {
 		    x += xa;
 		    y += ya;
@@ -28,7 +36,7 @@ public abstract class Mob extends Entity {
 	
 	private boolean collision(int xa, int ya) {
 		boolean solid = false;
-		if (level.getTile((x + xa) / 16, (y + ya) / 16).solid()) solid = true;
+		if (level.getTile((x + xa) / 16, (y + ya) / 16).solid()) solid = true; // if the tile we want to go to is solid do not advance
 		return solid;
 	}
 	
