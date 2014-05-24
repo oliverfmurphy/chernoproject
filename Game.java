@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import com.olivermurphy.chernoproject.entity.mob.Player;
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.input.Keyboard;
+import com.olivermurphy.chernoproject.input.Mouse;
 import com.olivermurphy.chernoproject.level.Level;
 import com.olivermurphy.chernoproject.level.TileCoordinate;
 
@@ -52,7 +53,11 @@ public class Game extends Canvas implements Runnable {
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);// tile * pixels(16 pixels) customises spawn location when x and y defined
         player.init(level);
 		
-		addKeyListener(key);	
+        Mouse mouse = new Mouse();
+        
+		addKeyListener(key);
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 	}
 
 	public synchronized void start() {
@@ -137,6 +142,15 @@ public class Game extends Canvas implements Runnable {
 		g.setFont(new Font("Verdana", 0, 50));
 		//g.drawString("X: " + player.x + ", Y: " + player.y, 350, 300);
 
+		// test the mouse
+		g.fillRect(Mouse.getX() -32, Mouse.getY() -32, 64, 64);
+		
+		// test the button
+		if (Mouse.getButton() != -1) {
+			g.drawString("Button: " + Mouse.getButton(), 80, 80);
+		}
+		
+		
 		g.dispose(); // releases system resources
 		bs.show();   // displays next available buffer
 	}
