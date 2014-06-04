@@ -13,7 +13,7 @@ public class SpawnWallTile extends Tile {
 	// will be in pixel format and not tile format
     public void render(int x, int y, Screen screen) {	
 	    // Do render stuff here!
-		screen.renderTile(x << 4, y << 4, this); //multiply by 16 to get back to tile level precision
+		screen.renderTile(x << 4, y << 4, sprite.spawn_wall1); //multiply by 16 to get back to tile level precision
 	}
     
     public boolean solid() {

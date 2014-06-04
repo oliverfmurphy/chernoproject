@@ -2,8 +2,7 @@ package com.olivermurphy.chernoproject.graphics;
 
 import java.util.Random;
 
-import com.olivermurphy.chernoproject.entity.mob.Player;
-import com.olivermurphy.chernoproject.level.tile.Tile;
+import com.olivermurphy.chernoproject.entity.projectile.Projectile;
 
 public class Screen {
 
@@ -63,22 +62,42 @@ public class Screen {
     
     //Rendering tile on offset based position
     // alternatively manage each tiles position manually
-    public void renderTile(int xp, int yp, Tile tile) {
+    public void renderTile(int xp, int yp, Sprite sprite) {
     	
     	xp -= xOffset; // minus as when we move right we want map to move left
     	yp -= yOffset;
     	
-    	for (int y = 0; y < tile.sprite.SIZE; y++) {
+    	for (int y = 0; y < sprite.SIZE; y++) {
     		int ya = y + yp; // ya => y absolute - y position + offset
-        	for (int x = 0; x < tile.sprite.SIZE; x++) {
+        	for (int x = 0; x < sprite.SIZE; x++) {
         		int xa = x + xp; // xa => x absolute
-        		if (xa < -tile.sprite.SIZE || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
+        		if (xa < -sprite.SIZE || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
         		if (xa < 0) xa = 0;
         		// where sprite is rendered = which pixels of sprite gets rendered
-        		pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+        		pixels[xa + ya * width] = sprite.pixels[x + y * sprite.SIZE];
         	}
     	}
     }
+
+    public void renderProjectile(int xp, int yp, Projectile p) {
+    	
+    	xp -= xOffset; // minus as when we move right we want map to move left
+    	yp -= yOffset;
+    	
+    	for (int y = 0; y < p.getSpriteSize(); y++) {
+    		int ya = y + yp; // ya => y absolute - y position + offset
+        	for (int x = 0; x < p.getSpriteSize(); x++) {
+        		int xa = x + xp; // xa => x absolute
+        		if (xa < -p.getSpriteSize() || xa >= width || ya <0 || ya >= height) break; //only render tiles you see
+        		if (xa < 0) xa = 0;
+        		int col = p.getSprite().pixels[x + y * p.getSprite().SIZE];
+        		// where sprite is rendered = which pixels of sprite gets rendered
+        		if (col != 0xffff00ff) pixels[xa + ya * width] = col;
+        	}
+    	}
+    }
+
+    
     
     // int flip instead of boolean as 4 states, x y/n & y y/n
     public void renderPlayer(int xp, int yp, Sprite sprite, int flip) {

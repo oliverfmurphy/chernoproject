@@ -1,6 +1,11 @@
 package com.olivermurphy.chernoproject.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.olivermurphy.chernoproject.entity.Entity;
+import com.olivermurphy.chernoproject.entity.projectile.Projectile;
+import com.olivermurphy.chernoproject.entity.projectile.WizardProjectile;
 import com.olivermurphy.chernoproject.graphics.Sprite;
 
 // Mob is a template for all Mobs we create
@@ -9,6 +14,8 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 0; // direction -> 0 - North, 1 - East, 2 - South, 3 - West
 	protected boolean moving = false;
+	
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public void move(int xa, int ya) {
         
@@ -34,9 +41,13 @@ public abstract class Mob extends Entity {
 	public void update () {		
 	}
 	
+	// everytime we shoot this method is called
 	protected void shoot(int x, int y, double dir) {
-		dir = dir * (180 / Math.PI);
-		System.out.println("Angle: " + dir);
+		//dir = dir * (180 / Math.PI);
+		Projectile p = new WizardProjectile(x, y, dir);
+		projectiles.add(p);
+		level.add(p);
+		
 	}
 	
 	private boolean collision(int xa, int ya) {

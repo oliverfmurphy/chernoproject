@@ -1,5 +1,9 @@
 package com.olivermurphy.chernoproject.level;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.olivermurphy.chernoproject.entity.Entity;
 import com.olivermurphy.chernoproject.graphics.Screen;
 import com.olivermurphy.chernoproject.level.tile.Tile;
 
@@ -9,6 +13,9 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;// will contain all the level tiles
+	
+	private List<Entity> entities = new ArrayList<Entity>(); // Array f all entities in level, Arraylist as it needs to be dynamic
+	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png"); // levels always static as only ever one instance of a level
 	
 	public Level(int width, int height) {
@@ -31,9 +38,11 @@ public class Level {
 		
 	}
 	
-	// Aritificial intelligence to be updated etc
+	// Artificial intelligence to be updated etc
 	public void update() {
-		
+		for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).update();	
+		}
 	}
 	
 	// manage the time
@@ -54,11 +63,22 @@ public class Level {
 		int y0 = yScroll >> 4;
 		int y1= (yScroll + screen.height + 16) >> 4;
 		
+		// render the level
 		for (int y = y0; y < y1; y++) { // want to render from top part of the screen y0 to the bottom part of the screen y1
 			for (int x = x0; x < x1; x++){ // all pixels left x0 to right x1
 				getTile(x, y).render(x, y, screen);
 			}
 		}
+		
+		// render the entities
+		for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).render(screen);	
+		}
+
+	}
+	
+	public void add(Entity e) {
+		entities.add(e);
 	}
 	
 	// Grass = 0xff00ff00

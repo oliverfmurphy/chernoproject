@@ -14,6 +14,8 @@ public class SpriteSheet {
 	
 	public static SpriteSheet tiles = new SpriteSheet("/textures/sheets/spritesheet.png", 256); //static implies one instance
 	public static SpriteSheet spawn_level = new SpriteSheet("/textures/sheets/spawn_level.png", 48); //static implies one instance
+	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); //static implies one instance
+	
 	
 	public SpriteSheet(String path, int size) {
 		this.path = path;
